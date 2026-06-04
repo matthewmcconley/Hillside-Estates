@@ -688,6 +688,8 @@
     /* hide decorative heading underlines on interior pages */
     .rule{ display:none !important; }
     .page-title h1::after{ display:none !important; }
+    .page-hero{ display:flex; align-items:center; }
+    .page-hero-content{ width:min(520px, 100%); }
   </style>
 </head>
 <body>
@@ -721,11 +723,13 @@
   </header>
 
   <main>
-    <section class="page-title">
+    <section class="page-hero">
       <div class="container">
-        <p class="page-kicker">Resident Portal</p>
-        <h1>AppFolio</h1>
-        <p>Quick access for residents who manage rent, payments, maintenance requests, and account details online.</p>
+        <div class="page-hero-content">
+          <p class="eyebrow">Resident Portal</p>
+          <h1>AppFolio</h1>
+          <p>Quick access for residents who manage rent, payments, maintenance requests, and account details online.</p>
+        </div>
       </div>
     </section>
 
