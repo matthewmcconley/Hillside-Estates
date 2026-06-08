@@ -1053,6 +1053,14 @@
     .hero-photo{ position:relative; background:url("assets/01-community-entrance.png") 33% center/cover no-repeat; }
     .hero-photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(100deg, rgba(0,103,71,.28), rgba(0,103,71,0) 34%); }
     @media (max-width:860px){ .hero{ grid-template-columns:1fr; } .hero-photo{ min-height:280px; order:-1; } .hero-content{ padding:46px 24px; } }
+    .community-view{ padding:74px 0; background:var(--cream); }
+    .community-view .container{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,430px); gap:clamp(32px,5vw,66px); align-items:center; }
+    .community-view-text h2{ font-family:var(--serif); font-size:clamp(30px,3.1vw,46px); font-weight:540; color:var(--ink); line-height:1.1; margin:0; }
+    .community-view-text > p:last-child{ color:var(--muted); margin:20px 0 0; max-width:50ch; font-size:17px; }
+    .community-view-media{ display:block; border-radius:16px; overflow:hidden; box-shadow:0 28px 56px -30px rgba(20,40,25,.6); border:6px solid #fff; }
+    .community-view-media img{ display:block; width:100%; height:auto; transition:transform .5s ease; }
+    .community-view-media:hover img{ transform:scale(1.04); }
+    @media (max-width:860px){ .community-view .container{ grid-template-columns:1fr; gap:26px; } .community-view-media{ max-width:460px; margin:0 auto; } }
   </style>
 </head>
 <body>
@@ -1131,35 +1139,29 @@
     <section class="homes">
       <div class="container">
         <div class="section-heading">
-          <h2>Available Homes</h2>
-          <a class="view-all" href="homes-for-sale.html">View all homes</a>
+          <h2>Home Gallery</h2>
+          <a class="view-all" href="gallery.html">View full gallery</a>
         </div>
         <div class="home-grid">
           <article class="home-card">
-            <div class="card-media one"><span class="badge">Price Reduced</span></div>
+            <div class="card-media one"><span class="badge">Featured Home</span></div>
             <div class="card-body">
-              <div class="price">$179,000</div>
-              <p class="meta">3 Bed &nbsp; • &nbsp; 2 Bath &nbsp; • &nbsp; 1120 sq ft</p>
-              <p class="address">Built in 2019 • 11 Zimmer Drive</p>
-              <a class="card-button" href="contact.html?home=11-zimmer-drive">Request Info</a>
+              <p class="address">A look at the well-kept homes and streetscapes throughout Hillside Estates.</p>
+              <a class="card-button" href="gallery.html">View Gallery</a>
             </div>
           </article>
           <article class="home-card">
             <div class="card-media two"></div>
             <div class="card-body">
-              <div class="price">$199,999</div>
-              <p class="meta">3 Bed &nbsp; • &nbsp; 2 Bath &nbsp; • &nbsp; 1056 sq ft</p>
-              <p class="address">Built in 2008 • 10 Sunrise Circle</p>
-              <a class="card-button" href="contact.html?home=10-sunrise-circle">Request Info</a>
+              <p class="address">Homes with welcoming entries, green space, and room to enjoy the neighborhood.</p>
+              <a class="card-button" href="gallery.html">View Gallery</a>
             </div>
           </article>
           <article class="home-card">
-            <div class="card-media three"><span class="badge">New Listing</span></div>
+            <div class="card-media three"><span class="badge">Community View</span></div>
             <div class="card-body">
-              <div class="price">$125,000</div>
-              <p class="meta">2 Bed &nbsp; • &nbsp; 1.5 Bath &nbsp; • &nbsp; 840 sq ft</p>
-              <p class="address">Built in 2015 • 35 Woodbine Ave</p>
-              <a class="card-button" href="contact.html?home=35-woodbine-ave">Request Info</a>
+              <p class="address">A snapshot of the residential feel and maintained grounds around the community.</p>
+              <a class="card-button" href="gallery.html">View Gallery</a>
             </div>
           </article>
         </div>
@@ -1197,6 +1199,20 @@
           </div>
         </div>
         <div class="mission-photo" role="img" aria-label="A well-maintained home at Hillside Estates"></div>
+      </div>
+    </section>
+
+    <section class="community-view">
+      <div class="container">
+        <div class="community-view-text">
+          <p class="eyebrow">Our Community</p>
+          <h2>Set in the Woods of Franklin</h2>
+          <div class="rule"></div>
+          <p>Hillside Estates at Franklin is tucked into the wooded hills of Sussex County. Quiet, tree-lined streets &mdash; Skyview, Woodbine, Zimmer, Cedar, Alpine Circle, and Sunrise &mdash; wind through an established community of more than 190 homes, just off Munsonhurst Road.</p>
+        </div>
+        <a class="community-view-media" href="assets/community-aerial-full.jpg" target="_blank" rel="noopener" aria-label="Open full-size aerial view of the community">
+          <img src="assets/community-aerial.jpg" alt="Aerial view of Hillside Estates at Franklin showing tree-lined streets and homes surrounded by woods" loading="lazy">
+        </a>
       </div>
     </section>
 
@@ -1319,4 +1335,3 @@
   <script>(function(){var h=document.querySelector('.site-header');function s(){h&&h.classList.toggle('scrolled',window.scrollY>10);}window.addEventListener('scroll',s,{passive:true});s();})();</script>
 </body>
 </html>
-
