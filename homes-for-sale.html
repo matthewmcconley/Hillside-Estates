@@ -245,9 +245,7 @@
       min-height: 360px;
       display: flex;
       align-items: center;
-      background:
-        linear-gradient(90deg, rgba(0, 15, 10, .78) 0%, rgba(0, 15, 10, .54) 38%, rgba(0, 15, 10, .14) 74%),
-        url("assets/05-centered-deck-home.jpeg") center 52% / cover no-repeat;
+      background: #006747;
       color: #fff;
     }
 
@@ -350,11 +348,6 @@
       background: var(--sand) center / cover no-repeat;
     }
 
-    .card-media.one { background-image: url("assets/02-featured-gray-driveway-home.jpeg"); }
-    .card-media.two { background-image: url("assets/05-centered-deck-home.jpeg"); }
-    .card-media.three { background-image: url("assets/04-stone-retaining-wall-home.jpeg"); }
-    .card-media.four { background-image: url("assets/03-evergreen-flag-home.jpeg"); }
-    .card-media.five { background-image: url("assets/06-deck-landscaping-home.jpeg"); }
 
     .badge {
       position: absolute;
@@ -627,9 +620,6 @@
 
       .page-hero {
         min-height: 390px;
-        background:
-          linear-gradient(180deg, rgba(0, 0, 0, .14) 0%, rgba(0, 0, 0, .68) 62%, rgba(0, 0, 0, .84) 100%),
-          url("assets/05-centered-deck-home.jpeg") center / cover no-repeat;
       }
 
       .page-hero-content {
@@ -674,7 +664,7 @@
     .page-hero .eyebrow{ color:rgba(255,255,255,0.85); }
     .page-hero .eyebrow::before{ background:var(--brass); }
     .page-hero h1{ color:#fbfaf6; font-weight:470; letter-spacing:-.022em; font-size:clamp(40px,4.6vw,64px); }
-    .page-hero p{ color:rgba(255,255,255,.84); font-weight:400; }
+    .page-hero p{ color:rgba(255,255,255,.84); font-weight:400; font-size:18px; }
 
     /* appfolio page-title -> green band */
     .page-title{ background:radial-gradient(125% 130% at 50% 0%, rgba(255,255,255,.08), rgba(255,255,255,0) 52%), var(--green) !important; border-bottom:0 !important; color:#fff; }
@@ -720,6 +710,28 @@
     /* hide decorative heading underlines on interior pages */
     .rule{ display:none !important; }
     .page-title h1::after{ display:none !important; }
+    /* single featured home + floor plan (compact two-column) */
+    .feature-home{ display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:28px; align-items:center; max-width:1020px; margin:6px auto 0; background:#fff; border:1px solid #e7e2d6; border-radius:16px; box-shadow:0 16px 36px -24px rgba(20,40,25,.30); padding:24px 26px; }
+    .feature-home-plan{ display:block; }
+    .feature-home-plan img{ display:block; width:100%; height:auto; border-radius:8px; }
+    .plan-caption{ text-align:center; font-size:12px; color:var(--muted); margin:9px 0 0; }
+    .feature-home-info .badge{ display:inline-block; background:var(--green); color:#fff; font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:5px 11px; border-radius:999px; }
+    .feature-home-info h3{ font-family:var(--serif); font-weight:600; font-size:clamp(23px,2.2vw,30px); margin:12px 0 0; color:var(--green); line-height:1.12; }
+    .spec-row{ list-style:none; display:flex; flex-wrap:wrap; gap:7px; padding:0; margin:14px 0 12px; }
+    .spec-row li{ background:var(--sand); border:1px solid #e7e2d6; border-radius:999px; padding:5px 12px; font-size:12px; font-weight:600; color:var(--ink); }
+    .feature-home-info .meta{ color:var(--muted); font-size:14px; margin:0 0 16px; }
+    .btn-primary{ display:inline-flex; align-items:center; gap:8px; background:var(--green); color:#fff; font-weight:600; font-size:14px; padding:11px 22px; border-radius:999px; box-shadow:0 10px 22px -12px rgba(0,103,71,.6); transition:transform .2s ease, box-shadow .25s ease, background .2s ease; }
+    .btn-primary::after{ content:"\2192"; font-size:16px; line-height:1; transition:transform .2s ease; }
+    .btn-primary:hover{ transform:translateY(-2px); background:#00553b; box-shadow:0 16px 30px -14px rgba(0,103,71,.72); }
+    .btn-primary:hover::after{ transform:translateX(3px); }
+    @media (max-width:760px){ .feature-home{ grid-template-columns:1fr; gap:14px; padding:20px; } }
+    /* community gallery */
+    .gallery-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-top:26px; }
+    .gallery-item{ margin:0; border-radius:14px; overflow:hidden; box-shadow:0 14px 32px -22px rgba(20,40,25,.32); background:#fff; aspect-ratio:4/3; }
+    .gallery-item img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; }
+    .gallery-item:hover img{ transform:scale(1.05); }
+    @media (max-width:760px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:480px){ .gallery-grid{ grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -756,77 +768,48 @@
     <section class="page-hero">
       <div class="container">
         <div class="page-hero-content">
-          <p class="eyebrow">Now Available</p>
           <h1>Homes for Sale</h1>
-          <p>Browse manufactured homes for sale at Hillside Estates at Franklin &mdash; view photos, pricing, and details, then request more information.</p>
+          <p>Browse available homes at Hillside Estates at Franklin &mdash; explore floor plans and pricing below.</p>
         </div>
       </div>
     </section>
 
     <section class="listings" id="homes">
       <div class="container">
-        <div class="listing-toolbar">
-          <div class="section-heading">
-            <h2>Available Homes</h2>
-            <p>Listings, pricing, and availability can change. Contact the office to confirm current details or schedule a visit.</p>
+        <article class="feature-home">
+          <div class="fh-plan-col">
+            <a class="feature-home-plan" href="assets/floorplan-newstandard.png" target="_blank" rel="noopener" aria-label="Open full-size floor plan">
+              <img src="assets/floorplan-newstandard.png" alt="Floor plan of the new 3-bedroom, 2-bath home: master bedroom, baths, kitchen, dining, living room, and two bedrooms across 1,001 square feet" loading="lazy">
+            </a>
+            <p class="plan-caption">3 Bed / 2 Bath floor plan &middot; click to enlarge</p>
           </div>
-          <div class="filters" aria-label="Filter homes by bedrooms">
-            <button class="filter-button active" type="button" data-filter="all">All Homes</button>
-            <button class="filter-button" type="button" data-filter="2">2 Bedrooms</button>
-            <button class="filter-button" type="button" data-filter="3">3 Bedrooms</button>
+          <div class="feature-home-info">
+            <span class="badge">New Home &middot; Coming Soon</span>
+            <h3>Starting at $149,999</h3>
+            <ul class="spec-row">
+              <li>3 Bedrooms</li>
+              <li>2 Bathrooms</li>
+              <li>1,001 sq ft</li>
+              <li>15&rsquo;-2&Prime; &times; 66&rsquo;-0&Prime;</li>
+            </ul>
+            <p class="meta">A brand-new home soon to be placed and built in Hillside Estates at Franklin. Contact us to learn more or reserve it.</p>
+            <a class="btn-primary" href="contact.html?home=new-3-bedroom">Request Information</a>
           </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt gallery-section" aria-labelledby="gallery-heading">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="gallery-heading">Homes in Our Community</h2>
+          <p>A look at manufactured homes throughout Hillside Estates at Franklin.</p>
         </div>
-
-        <div class="homes-grid">
-          <article class="home-card" data-bedrooms="3">
-            <div class="card-media one"><span class="badge">Price Reduced</span></div>
-            <div class="home-card-body">
-              <p class="price">$179,000</p>
-              <p class="details">3 Bed <span>&bull;</span> 2 Bath <span>&bull;</span> 1,120 sq ft</p>
-              <p class="meta">Built in 2019 <span>&bull;</span> 11 Zimmer Drive</p>
-              <a class="card-button" href="contact.html?home=11-zimmer-drive">Request Info</a>
-            </div>
-          </article>
-
-          <article class="home-card" data-bedrooms="3">
-            <div class="card-media two"></div>
-            <div class="home-card-body">
-              <p class="price">$199,999</p>
-              <p class="details">3 Bed <span>&bull;</span> 2 Bath <span>&bull;</span> 1,056 sq ft</p>
-              <p class="meta">Built in 2008 <span>&bull;</span> 10 Sunrise Circle</p>
-              <a class="card-button" href="contact.html?home=10-sunrise-circle">Request Info</a>
-            </div>
-          </article>
-
-          <article class="home-card" data-bedrooms="2">
-            <div class="card-media three"><span class="badge">New Listing</span></div>
-            <div class="home-card-body">
-              <p class="price">$125,000</p>
-              <p class="details">2 Bed <span>&bull;</span> 1.5 Bath <span>&bull;</span> 840 sq ft</p>
-              <p class="meta">Built in 2015 <span>&bull;</span> 35 Woodbine Ave</p>
-              <a class="card-button" href="contact.html?home=35-woodbine-ave">Request Info</a>
-            </div>
-          </article>
-
-          <article class="home-card" data-bedrooms="3">
-            <div class="card-media four"></div>
-            <div class="home-card-body">
-              <p class="price">$224,900</p>
-              <p class="details">3 Bed <span>&bull;</span> 2 Bath <span>&bull;</span> 1,244 sq ft</p>
-              <p class="meta">Built in 2020 <span>&bull;</span> Located in Hillside Estates</p>
-              <a class="card-button" href="contact.html?home=3-bedroom-home">Request Info</a>
-            </div>
-          </article>
-
-          <article class="home-card" data-bedrooms="3">
-            <div class="card-media five"></div>
-            <div class="home-card-body">
-              <p class="price">$189,900</p>
-              <p class="details">3 Bed <span>&bull;</span> 2 Bath <span>&bull;</span> 1,245 sq ft</p>
-              <p class="meta">Built in 2011 <span>&bull;</span> Located in Hillside Estates</p>
-              <a class="card-button" href="contact.html?home=landscaped-deck-home">Request Info</a>
-            </div>
-          </article>
+        <div class="gallery-grid">
+          <figure class="gallery-item"><img src="assets/02-featured-gray-driveway-home.jpeg" alt="Manufactured home with gray driveway in Hillside Estates" loading="lazy"></figure>
+          <figure class="gallery-item"><img src="assets/03-evergreen-flag-home.jpeg" alt="Home with evergreen landscaping in Hillside Estates" loading="lazy"></figure>
+          <figure class="gallery-item"><img src="assets/05-centered-deck-home.jpeg" alt="Home with centered deck in Hillside Estates" loading="lazy"></figure>
+          <figure class="gallery-item"><img src="assets/06-deck-landscaping-home.jpeg" alt="Home with deck and landscaping in Hillside Estates" loading="lazy"></figure>
         </div>
       </div>
     </section>
