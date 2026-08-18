@@ -1085,16 +1085,22 @@
 
   
     /* Compact listing photo carousel */
-    .listing-carousel{position:relative;display:grid;place-items:center;overflow:hidden;height:300px;border-radius:12px;background:var(--sand);border:1px solid var(--line)}
+    .listing-carousel{position:relative;display:grid;place-items:center;overflow:hidden;height:160px;border-radius:12px;background:var(--sand);border:1px solid var(--line)}
     .listing-carousel .carousel-image{display:none;width:100%;height:100%;object-fit:contain;background:var(--sand)}
     .listing-carousel .carousel-image.is-active{display:block}
-    .home-spotlight-media.listing-carousel{min-height:0;height:320px;padding:0;background:var(--sand)}
+    .home-spotlight-media.listing-carousel{min-height:0;height:170px;padding:0;background:var(--sand)}
     .carousel-arrow{position:absolute;top:50%;z-index:2;display:grid;place-items:center;width:42px;height:42px;border:1px solid rgba(255,255,255,.72);border-radius:50%;background:rgba(6,69,47,.9);color:#fff;font-size:22px;line-height:1;cursor:pointer;transform:translateY(-50%);box-shadow:0 6px 16px rgba(0,0,0,.18)}
     .carousel-arrow:hover,.carousel-arrow:focus-visible{background:var(--green-dark);outline:2px solid #fff;outline-offset:2px}
     .carousel-prev{left:12px}.carousel-next{right:12px}
     .carousel-count{position:absolute;right:12px;bottom:12px;padding:5px 9px;border-radius:999px;background:rgba(6,69,47,.9);color:#fff;font-size:12px;font-weight:800}
-    @media(max-width:560px){.listing-carousel{height:250px}.home-spotlight-media.listing-carousel{height:270px}.carousel-arrow{width:38px;height:38px}}
+    @media(max-width:560px){.listing-carousel{height:150px}.home-spotlight-media.listing-carousel{height:160px}.carousel-arrow{width:38px;height:38px}}
 
+  
+    /* Keep the featured-home panel concise */
+    .home-spotlight-copy{padding:28px clamp(24px,3vw,40px)}
+    .home-spotlight-copy h2{font-size:clamp(30px,3vw,42px)}
+    .home-spotlight-price{margin-top:10px;font-size:clamp(27px,2.6vw,34px)}
+    .home-spotlight-specs{margin:15px 0 18px}
   </style>
 </head>
 <body>
