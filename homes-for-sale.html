@@ -772,6 +772,18 @@
     @media(max-width:760px){.listing-photo-main{height:330px}}
     @media(max-width:480px){.listing-photo-main{height:280px}.listing-photo-thumbs{gap:5px}}
 
+  
+    /* Compact listing photo carousel */
+    .listing-carousel{position:relative;display:grid;place-items:center;overflow:hidden;height:300px;border-radius:12px;background:var(--sand);border:1px solid var(--line)}
+    .listing-carousel .carousel-image{display:none;width:100%;height:100%;object-fit:contain;background:var(--sand)}
+    .listing-carousel .carousel-image.is-active{display:block}
+    .home-spotlight-media.listing-carousel{min-height:0;height:320px;padding:0;background:var(--sand)}
+    .carousel-arrow{position:absolute;top:50%;z-index:2;display:grid;place-items:center;width:42px;height:42px;border:1px solid rgba(255,255,255,.72);border-radius:50%;background:rgba(6,69,47,.9);color:#fff;font-size:22px;line-height:1;cursor:pointer;transform:translateY(-50%);box-shadow:0 6px 16px rgba(0,0,0,.18)}
+    .carousel-arrow:hover,.carousel-arrow:focus-visible{background:var(--green-dark);outline:2px solid #fff;outline-offset:2px}
+    .carousel-prev{left:12px}.carousel-next{right:12px}
+    .carousel-count{position:absolute;right:12px;bottom:12px;padding:5px 9px;border-radius:999px;background:rgba(6,69,47,.9);color:#fff;font-size:12px;font-weight:800}
+    @media(max-width:560px){.listing-carousel{height:250px}.home-spotlight-media.listing-carousel{height:270px}.carousel-arrow{width:38px;height:38px}}
+
   </style>
 </head>
 <body>
@@ -817,17 +829,18 @@
     <section class="listings" id="homes">
       <div class="container">
         <article class="feature-home" id="cedar-drive" aria-labelledby="cedar-drive-title">
-          <div class="listing-photo-gallery" aria-label="Photos of 18 Cedar Drive">
-            <a class="listing-photo-main" href="assets/listings/18-cedar-drive/01-kitchen-gallery.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/01-kitchen-gallery.jpg" alt="Kitchen at 18 Cedar Drive"></a>
-            <div class="listing-photo-thumbs">
-              <a href="assets/listings/18-cedar-drive/02-dining-room-gallery.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/02-dining-room-gallery.jpg" alt="Dining room at 18 Cedar Drive" loading="lazy"></a>
-              <a href="assets/listings/18-cedar-drive/03-living-room-gallery.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/03-living-room-gallery.jpg" alt="Living room at 18 Cedar Drive" loading="lazy"></a>
-              <a href="assets/listings/18-cedar-drive/04-open-living-kitchen-gallery.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/04-open-living-kitchen-gallery.jpg" alt="Open living and kitchen view at 18 Cedar Drive" loading="lazy"></a>
-              <a href="assets/listings/18-cedar-drive/05-bathroom-vanity-gallery.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/05-bathroom-vanity-gallery.jpg" alt="Bathroom vanity at 18 Cedar Drive" loading="lazy"></a>
-              <a href="assets/listings/18-cedar-drive/06-bathroom-gallery.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/06-bathroom-gallery.jpg" alt="Bathroom at 18 Cedar Drive" loading="lazy"></a>
-            </div>
+          <div class="listing-carousel listing-photo-gallery" data-carousel aria-label="Photos of 18 Cedar Drive">
+            <img class="carousel-image is-active" src="assets/listings/18-cedar-drive/01-kitchen-gallery.jpg" alt="Kitchen at 18 Cedar Drive">
+            <img class="carousel-image" src="assets/listings/18-cedar-drive/02-dining-room-gallery.jpg" alt="Dining room at 18 Cedar Drive" loading="lazy">
+            <img class="carousel-image" src="assets/listings/18-cedar-drive/03-living-room-gallery.jpg" alt="Living room at 18 Cedar Drive" loading="lazy">
+            <img class="carousel-image" src="assets/listings/18-cedar-drive/04-open-living-kitchen-gallery.jpg" alt="Open living and kitchen view at 18 Cedar Drive" loading="lazy">
+            <img class="carousel-image" src="assets/listings/18-cedar-drive/05-bathroom-vanity-gallery.jpg" alt="Bathroom vanity at 18 Cedar Drive" loading="lazy">
+            <img class="carousel-image" src="assets/listings/18-cedar-drive/06-bathroom-gallery.jpg" alt="Bathroom at 18 Cedar Drive" loading="lazy">
+            <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous photo">&#8592;</button>
+            <button class="carousel-arrow carousel-next" type="button" aria-label="Next photo">&#8594;</button>
+            <span class="carousel-count" aria-live="polite">1 / 6</span>
           </div>
-          <div class="feature-home-info">
+                    <div class="feature-home-info">
             <span class="badge">For Sale</span>
             <h3 id="cedar-drive-title">$149,900</h3>
             <p class="listing-address">18 Cedar Drive<br>Franklin, NJ 07416</p>
@@ -841,26 +854,7 @@
           </div>
         </article>
 
-        <article class="feature-home">
-          <div class="fh-plan-col">
-            <a class="feature-home-plan" href="assets/floorplan-newstandard.png" target="_blank" rel="noopener" aria-label="Open full-size floor plan">
-              <img src="assets/floorplan-newstandard.png" alt="Floor plan of the new 3-bedroom, 2-bath home: master bedroom, baths, kitchen, dining, living room, and two bedrooms across 1,001 square feet" loading="lazy">
-            </a>
-            <p class="plan-caption">3 Bed / 2 Bath floor plan &middot; click to enlarge</p>
-          </div>
-          <div class="feature-home-info">
-            <span class="badge">New Home &middot; Coming Soon</span>
-            <h3>Starting at $149,999</h3>
-            <ul class="spec-row">
-              <li>3 Bedrooms</li>
-              <li>2 Bathrooms</li>
-              <li>1,001 sq ft</li>
-              <li>15&rsquo;-2&Prime; &times; 66&rsquo;-0&Prime;</li>
-            </ul>
-            <p class="meta">A brand-new home soon to be placed and built in Hillside Estates at Franklin. Contact us to learn more or reserve it.</p>
-            <a class="btn-primary" href="contact.html?home=new-3-bedroom">Request Information</a>
-          </div>
-        </article>
+
       </div>
     </section>
 
@@ -966,5 +960,25 @@
     });
   </script>
   <script>(function(){var h=document.querySelector('.site-header');function s(){h&&h.classList.toggle('scrolled',window.scrollY>10);}window.addEventListener('scroll',s,{passive:true});s();})();</script>
+
+  <script>
+    (function () {
+      document.querySelectorAll("[data-carousel]").forEach(function (carousel) {
+        var slides = Array.prototype.slice.call(carousel.querySelectorAll(".carousel-image"));
+        var count = carousel.querySelector(".carousel-count");
+        var index = 0;
+        function show(nextIndex) {
+          index = (nextIndex + slides.length) % slides.length;
+          slides.forEach(function (slide, slideIndex) {
+            slide.classList.toggle("is-active", slideIndex === index);
+          });
+          count.textContent = (index + 1) + " / " + slides.length;
+        }
+        carousel.querySelector(".carousel-prev").addEventListener("click", function () { show(index - 1); });
+        carousel.querySelector(".carousel-next").addEventListener("click", function () { show(index + 1); });
+      });
+    }());
+  </script>
+
 </body>
 </html>

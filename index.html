@@ -1083,6 +1083,18 @@
     @media(max-width:860px){.home-spotlight-card{grid-template-columns:1fr}.home-spotlight-media{min-height:420px}}
     @media(max-width:560px){.home-spotlight{padding:42px 0}.home-spotlight-media{min-height:350px}.home-spotlight-main{min-height:280px}.home-spotlight-copy{padding:28px 22px 32px}.home-spotlight-actions a{width:100%}}
 
+  
+    /* Compact listing photo carousel */
+    .listing-carousel{position:relative;display:grid;place-items:center;overflow:hidden;height:300px;border-radius:12px;background:var(--sand);border:1px solid var(--line)}
+    .listing-carousel .carousel-image{display:none;width:100%;height:100%;object-fit:contain;background:var(--sand)}
+    .listing-carousel .carousel-image.is-active{display:block}
+    .home-spotlight-media.listing-carousel{min-height:0;height:320px;padding:0;background:var(--sand)}
+    .carousel-arrow{position:absolute;top:50%;z-index:2;display:grid;place-items:center;width:42px;height:42px;border:1px solid rgba(255,255,255,.72);border-radius:50%;background:rgba(6,69,47,.9);color:#fff;font-size:22px;line-height:1;cursor:pointer;transform:translateY(-50%);box-shadow:0 6px 16px rgba(0,0,0,.18)}
+    .carousel-arrow:hover,.carousel-arrow:focus-visible{background:var(--green-dark);outline:2px solid #fff;outline-offset:2px}
+    .carousel-prev{left:12px}.carousel-next{right:12px}
+    .carousel-count{position:absolute;right:12px;bottom:12px;padding:5px 9px;border-radius:999px;background:rgba(6,69,47,.9);color:#fff;font-size:12px;font-weight:800}
+    @media(max-width:560px){.listing-carousel{height:250px}.home-spotlight-media.listing-carousel{height:270px}.carousel-arrow{width:38px;height:38px}}
+
   </style>
 </head>
 <body>
@@ -1133,17 +1145,18 @@
     <section class="home-spotlight" aria-labelledby="featured-home-heading">
       <div class="container">
         <article class="home-spotlight-card">
-          <div class="home-spotlight-media" aria-label="Photos of 18 Cedar Drive">
-            <a class="home-spotlight-main" href="assets/listings/18-cedar-drive/01-kitchen-gallery.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/01-kitchen-gallery.jpg" alt="Kitchen at 18 Cedar Drive"></a>
-            <div class="home-spotlight-thumbs">
-              <a href="assets/listings/18-cedar-drive/02-dining-room-gallery.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/02-dining-room-gallery.jpg" alt="Dining room at 18 Cedar Drive" loading="lazy"></a>
-              <a href="assets/listings/18-cedar-drive/03-living-room-gallery.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/03-living-room-gallery.jpg" alt="Living room at 18 Cedar Drive" loading="lazy"></a>
-              <a href="assets/listings/18-cedar-drive/04-open-living-kitchen-gallery.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/04-open-living-kitchen-gallery.jpg" alt="Open living and kitchen view at 18 Cedar Drive" loading="lazy"></a>
-              <a href="assets/listings/18-cedar-drive/05-bathroom-vanity-gallery.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/05-bathroom-vanity-gallery.jpg" alt="Bathroom vanity at 18 Cedar Drive" loading="lazy"></a>
-              <a href="assets/listings/18-cedar-drive/06-bathroom-gallery.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/06-bathroom-gallery.jpg" alt="Bathroom at 18 Cedar Drive" loading="lazy"></a>
-            </div>
+          <div class="listing-carousel home-spotlight-media" data-carousel aria-label="Photos of 18 Cedar Drive">
+            <img class="carousel-image is-active" src="assets/listings/18-cedar-drive/01-kitchen-gallery.jpg" alt="Kitchen at 18 Cedar Drive">
+            <img class="carousel-image" src="assets/listings/18-cedar-drive/02-dining-room-gallery.jpg" alt="Dining room at 18 Cedar Drive" loading="lazy">
+            <img class="carousel-image" src="assets/listings/18-cedar-drive/03-living-room-gallery.jpg" alt="Living room at 18 Cedar Drive" loading="lazy">
+            <img class="carousel-image" src="assets/listings/18-cedar-drive/04-open-living-kitchen-gallery.jpg" alt="Open living and kitchen view at 18 Cedar Drive" loading="lazy">
+            <img class="carousel-image" src="assets/listings/18-cedar-drive/05-bathroom-vanity-gallery.jpg" alt="Bathroom vanity at 18 Cedar Drive" loading="lazy">
+            <img class="carousel-image" src="assets/listings/18-cedar-drive/06-bathroom-gallery.jpg" alt="Bathroom at 18 Cedar Drive" loading="lazy">
+            <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous photo">&#8592;</button>
+            <button class="carousel-arrow carousel-next" type="button" aria-label="Next photo">&#8594;</button>
+            <span class="carousel-count" aria-live="polite">1 / 6</span>
           </div>
-          <div class="home-spotlight-copy">
+                    <div class="home-spotlight-copy">
             <p class="eyebrow">Featured Home</p>
             <h2 id="featured-home-heading">18 Cedar Drive</h2>
             <p class="home-spotlight-price">$149,900</p>
@@ -1381,5 +1394,25 @@
     });
   </script>
   <script>(function(){var h=document.querySelector('.site-header');function s(){h&&h.classList.toggle('scrolled',window.scrollY>10);}window.addEventListener('scroll',s,{passive:true});s();})();</script>
+
+  <script>
+    (function () {
+      document.querySelectorAll("[data-carousel]").forEach(function (carousel) {
+        var slides = Array.prototype.slice.call(carousel.querySelectorAll(".carousel-image"));
+        var count = carousel.querySelector(".carousel-count");
+        var index = 0;
+        function show(nextIndex) {
+          index = (nextIndex + slides.length) % slides.length;
+          slides.forEach(function (slide, slideIndex) {
+            slide.classList.toggle("is-active", slideIndex === index);
+          });
+          count.textContent = (index + 1) + " / " + slides.length;
+        }
+        carousel.querySelector(".carousel-prev").addEventListener("click", function () { show(index - 1); });
+        carousel.querySelector(".carousel-next").addEventListener("click", function () { show(index + 1); });
+      });
+    }());
+  </script>
+
 </body>
 </html>
