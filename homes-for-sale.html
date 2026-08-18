@@ -759,6 +759,19 @@
     .gallery-item:hover img{ transform:scale(1.05); }
     @media (max-width:760px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); } }
     @media (max-width:480px){ .gallery-grid{ grid-template-columns:1fr; } }
+  
+    /* Listing photo gallery */
+    .feature-home + .feature-home{margin-top:28px}
+    .listing-photo-gallery{min-width:0}
+    .listing-photo-main{display:block;overflow:hidden;height:360px;border-radius:12px;background:var(--sand)}
+    .listing-photo-main img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .25s ease}
+    .listing-photo-thumbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin-top:8px}
+    .listing-photo-thumbs a{display:block;overflow:hidden;aspect-ratio:1/1;border-radius:8px;background:var(--sand)}
+    .listing-photo-thumbs img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+    .listing-photo-main:hover img,.listing-photo-thumbs a:hover img{transform:scale(1.035)}
+    @media(max-width:760px){.listing-photo-main{height:330px}}
+    @media(max-width:480px){.listing-photo-main{height:280px}.listing-photo-thumbs{gap:5px}}
+
   </style>
 </head>
 <body>
@@ -803,6 +816,31 @@
 
     <section class="listings" id="homes">
       <div class="container">
+        <article class="feature-home" id="cedar-drive" aria-labelledby="cedar-drive-title">
+          <div class="listing-photo-gallery" aria-label="Photos of 18 Cedar Drive">
+            <a class="listing-photo-main" href="assets/listings/18-cedar-drive/01-kitchen.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/01-kitchen.jpg" alt="Kitchen at 18 Cedar Drive"></a>
+            <div class="listing-photo-thumbs">
+              <a href="assets/listings/18-cedar-drive/02-dining-room.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/02-dining-room.jpg" alt="Dining room at 18 Cedar Drive" loading="lazy"></a>
+              <a href="assets/listings/18-cedar-drive/03-living-room.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/03-living-room.jpg" alt="Living room at 18 Cedar Drive" loading="lazy"></a>
+              <a href="assets/listings/18-cedar-drive/04-open-living-kitchen.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/04-open-living-kitchen.jpg" alt="Open living and kitchen view at 18 Cedar Drive" loading="lazy"></a>
+              <a href="assets/listings/18-cedar-drive/05-bathroom-vanity.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/05-bathroom-vanity.jpg" alt="Bathroom vanity at 18 Cedar Drive" loading="lazy"></a>
+              <a href="assets/listings/18-cedar-drive/06-bathroom.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/06-bathroom.jpg" alt="Bathroom at 18 Cedar Drive" loading="lazy"></a>
+            </div>
+          </div>
+          <div class="feature-home-info">
+            <span class="badge">For Sale</span>
+            <h3 id="cedar-drive-title">$149,900</h3>
+            <p class="listing-address">18 Cedar Drive<br>Franklin, NJ 07416</p>
+            <ul class="spec-row">
+              <li>Champion</li>
+              <li>2016</li>
+              <li>Approx. 24 ft &times; 40 ft</li>
+            </ul>
+            <p class="missing-details">Bedroom and bathroom counts and additional details are not yet available. Contact us for current information.</p>
+            <a class="btn-primary" href="contact.html?home=18-cedar-drive">Request Information</a>
+          </div>
+        </article>
+
         <article class="feature-home">
           <div class="fh-plan-col">
             <a class="feature-home-plan" href="assets/floorplan-newstandard.png" target="_blank" rel="noopener" aria-label="Open full-size floor plan">
@@ -821,24 +859,6 @@
             </ul>
             <p class="meta">A brand-new home soon to be placed and built in Hillside Estates at Franklin. Contact us to learn more or reserve it.</p>
             <a class="btn-primary" href="contact.html?home=new-3-bedroom">Request Information</a>
-          </div>
-        </article>
-
-        <article class="feature-home" aria-labelledby="cedar-drive-title">
-          <div class="listing-photo-placeholder" role="img" aria-label="Property photo not yet available">
-            Property photos are not yet available.
-          </div>
-          <div class="feature-home-info">
-            <span class="badge">For Sale</span>
-            <h3 id="cedar-drive-title">$149,900</h3>
-            <p class="listing-address">18 Cedar Drive<br>Franklin, NJ 07416</p>
-            <ul class="spec-row">
-              <li>Champion</li>
-              <li>2016</li>
-              <li>Approx. 24 ft &times; 40 ft</li>
-            </ul>
-            <p class="missing-details">Bedroom and bathroom counts, property photos, and additional details are not yet available. Contact us for current information.</p>
-            <a class="btn-primary" href="contact.html?home=18-cedar-drive">Request Information</a>
           </div>
         </article>
       </div>

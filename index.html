@@ -1061,6 +1061,28 @@
     .community-view-media img{ display:block; width:100%; height:auto; transition:transform .5s ease; }
     .community-view-media:hover img{ transform:scale(1.04); }
     @media (max-width:860px){ .community-view .container{ grid-template-columns:1fr; gap:26px; } .community-view-media{ max-width:460px; margin:0 auto; } }
+  
+    /* Featured home spotlight */
+    .home-spotlight{padding:58px 0;background:#fff;border-bottom:1px solid var(--line)}
+    .home-spotlight-card{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(340px,.88fr);overflow:hidden;border:1px solid var(--line);border-radius:18px;background:var(--cream);box-shadow:0 24px 58px -34px rgba(20,40,25,.48)}
+    .home-spotlight-media{display:grid;grid-template-rows:minmax(0,1fr) auto;min-width:0;min-height:490px;padding:10px;gap:8px;background:var(--sand)}
+    .home-spotlight-main{display:block;min-height:390px;overflow:hidden;border-radius:12px;background:#fff}
+    .home-spotlight-main img{width:100%;height:100%;object-fit:cover;object-position:center 48%;transition:transform .25s ease}
+    .home-spotlight-thumbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+    .home-spotlight-thumbs a{display:block;overflow:hidden;aspect-ratio:1/1;border-radius:7px;background:#fff}
+    .home-spotlight-thumbs img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+    .home-spotlight-main:hover img,.home-spotlight-thumbs a:hover img{transform:scale(1.035)}
+    .home-spotlight-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(32px,5vw,64px)}
+    .home-spotlight-copy .eyebrow{color:var(--green);font-size:13px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+    .home-spotlight-copy h2{margin-top:10px;color:var(--ink);font-size:clamp(34px,4vw,52px);font-weight:540;line-height:1.04}
+    .home-spotlight-price{margin:18px 0 0;color:var(--green);font-family:var(--serif);font-size:clamp(30px,3.2vw,42px);font-weight:600}
+    .home-spotlight-address{margin:8px 0 0;color:var(--ink);font-size:18px;font-weight:800;line-height:1.4}
+    .home-spotlight-specs{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 26px;padding:0;list-style:none}
+    .home-spotlight-specs li{padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:13px;font-weight:700}
+    .home-spotlight-actions{display:flex;flex-wrap:wrap;gap:12px}
+    @media(max-width:860px){.home-spotlight-card{grid-template-columns:1fr}.home-spotlight-media{min-height:420px}}
+    @media(max-width:560px){.home-spotlight{padding:42px 0}.home-spotlight-media{min-height:350px}.home-spotlight-main{min-height:280px}.home-spotlight-copy{padding:28px 22px 32px}.home-spotlight-actions a{width:100%}}
+
   </style>
 </head>
 <body>
@@ -1105,6 +1127,32 @@
         </div>
       </div>
       <div class="hero-photo" aria-hidden="true"></div>
+    </section>
+
+
+    <section class="home-spotlight" aria-labelledby="featured-home-heading">
+      <div class="container">
+        <article class="home-spotlight-card">
+          <div class="home-spotlight-media" aria-label="Photos of 18 Cedar Drive">
+            <a class="home-spotlight-main" href="assets/listings/18-cedar-drive/01-kitchen.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/01-kitchen.jpg" alt="Kitchen at 18 Cedar Drive"></a>
+            <div class="home-spotlight-thumbs">
+              <a href="assets/listings/18-cedar-drive/02-dining-room.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/02-dining-room.jpg" alt="Dining room at 18 Cedar Drive" loading="lazy"></a>
+              <a href="assets/listings/18-cedar-drive/03-living-room.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/03-living-room.jpg" alt="Living room at 18 Cedar Drive" loading="lazy"></a>
+              <a href="assets/listings/18-cedar-drive/04-open-living-kitchen.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/04-open-living-kitchen.jpg" alt="Open living and kitchen view at 18 Cedar Drive" loading="lazy"></a>
+              <a href="assets/listings/18-cedar-drive/05-bathroom-vanity.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/05-bathroom-vanity.jpg" alt="Bathroom vanity at 18 Cedar Drive" loading="lazy"></a>
+              <a href="assets/listings/18-cedar-drive/06-bathroom.jpg" target="_blank" rel="noopener"><img src="assets/listings/18-cedar-drive/06-bathroom.jpg" alt="Bathroom at 18 Cedar Drive" loading="lazy"></a>
+            </div>
+          </div>
+          <div class="home-spotlight-copy">
+            <p class="eyebrow">Featured Home</p>
+            <h2 id="featured-home-heading">18 Cedar Drive</h2>
+            <p class="home-spotlight-price">$149,900</p>
+            <p class="home-spotlight-address">Franklin, NJ 07416</p>
+            <ul class="home-spotlight-specs" aria-label="Home details"><li>Champion</li><li>2016</li><li>Approx. 24 ft &times; 40 ft</li></ul>
+            <div class="home-spotlight-actions"><a class="primary-button" href="homes-for-sale.html#cedar-drive">View This Home</a><a class="secondary-button" href="contact.html?home=18-cedar-drive">Request Information</a></div>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="feature-strip">
