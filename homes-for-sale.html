@@ -725,6 +725,33 @@
     .btn-primary:hover{ transform:translateY(-2px); background:#00553b; box-shadow:0 16px 30px -14px rgba(0,103,71,.72); }
     .btn-primary:hover::after{ transform:translateX(3px); }
     @media (max-width:760px){ .feature-home{ grid-template-columns:1fr; gap:14px; padding:20px; } }
+    /* listing photo placeholder */
+    .listing-photo-placeholder{
+      min-height:260px;
+      display:grid;
+      place-items:center;
+      padding:32px;
+      border:1px dashed rgba(0,103,71,.28);
+      border-radius:12px;
+      background:var(--sand);
+      color:var(--green);
+      font-size:15px;
+      font-weight:700;
+      text-align:center;
+    }
+    .listing-address{
+      margin:10px 0 0;
+      color:var(--ink);
+      font-size:18px;
+      font-weight:700;
+      line-height:1.35;
+    }
+    .missing-details{
+      color:var(--muted);
+      font-size:13px;
+      margin:0 0 16px;
+    }
+
     /* community gallery */
     .gallery-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-top:26px; }
     .gallery-item{ margin:0; border-radius:14px; overflow:hidden; box-shadow:0 14px 32px -22px rgba(20,40,25,.32); background:#fff; aspect-ratio:4/3; }
@@ -794,6 +821,24 @@
             </ul>
             <p class="meta">A brand-new home soon to be placed and built in Hillside Estates at Franklin. Contact us to learn more or reserve it.</p>
             <a class="btn-primary" href="contact.html?home=new-3-bedroom">Request Information</a>
+          </div>
+        </article>
+
+        <article class="feature-home" aria-labelledby="cedar-drive-title">
+          <div class="listing-photo-placeholder" role="img" aria-label="Property photo not yet available">
+            Property photos are not yet available.
+          </div>
+          <div class="feature-home-info">
+            <span class="badge">For Sale</span>
+            <h3 id="cedar-drive-title">$149,900</h3>
+            <p class="listing-address">18 Cedar Drive<br>Franklin, NJ 07416</p>
+            <ul class="spec-row">
+              <li>Champion</li>
+              <li>2016</li>
+              <li>Approx. 24 ft &times; 40 ft</li>
+            </ul>
+            <p class="missing-details">Bedroom and bathroom counts, property photos, and additional details are not yet available. Contact us for current information.</p>
+            <a class="btn-primary" href="contact.html?home=18-cedar-drive">Request Information</a>
           </div>
         </article>
       </div>
